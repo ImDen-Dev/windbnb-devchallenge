@@ -1,0 +1,54 @@
+@media only screen and (min-width: 768px) {
+  .search {
+    &__header {
+      display: none;
+    }
+    &__btn {
+      display: none;
+    }
+    &__edit {
+      margin-top: 70px;
+    }
+  }
+  .edit {
+    display: flex;
+    flex-direction: row;
+    &__country,
+    &__guests,
+    &__search {
+      flex: 1 0 33.33%;
+    }
+    &__country,
+    &__guests {
+      &::after {
+        display: block;
+        width: 1px;
+        height: 100%;
+        left: initial;
+        top: 0;
+        right: 0;
+        z-index: 0;
+      }
+    }
+    &__btn {
+      display: block;
+      margin: 5px auto;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    width: 66.66%;
+    justify-content: space-between;
+    & .locations,
+    & .guests {
+      display: block;
+      flex: 1 0 33.33%;
+      visibility: hidden;
+      &.on-focus {
+        visibility: visible;
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+@import "../../../variables";
+
+.search {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparentize($dark-gray, 0.4);
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+  }
+  &__wrapper {
+    width: 100%;
+    padding: 18px 10px;
+    background-color: #ffffff;
+  }
+  &__header {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    & p {
+      display: inline-block;
+      color: $primary;
+      font-size: 0.86rem;
+      font-weight: 800;
+      line-height: 1.1rem;
+    }
+    & button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      outline: none;
+      color: $primary;
+    }
+  }
+  &__edit {
+    margin-bottom: 17px;
+  }
+  &__btn {
+    display: block;
+    margin: 24px auto;
+  }
+}
+
+.edit {
+  width: 100%;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  &__country,
+  &__guests {
+    padding: 11px 26px;
+    position: relative;
+    border-radius: 16px;
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $light-gray;
+    }
+    &:focus-within {
+      box-shadow: 0px 0px 0px 1px #000000;
+    }
+    & label {
+      display: block;
+      color: $primary;
+      font-size: 0.69rem;
+      font-weight: 800;
+      line-height: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    & input[type="text"] {
+      color: $primary;
+      font-weight: normal;
+      font-size: 1rem;
+      line-height: 1.3rem;
+      outline: none;
+      width: 100%;
+      &::placeholder {
+        color: $middle-gray;
+      }
+    }
+  }
+  &__guests::after {
+    display: none;
+  }
+  &__btn {
+    display: none;
+  }
+}
+
+.list {
+  width: 100%;
+  height: 300px;
+  &__guests {
+    padding-top: 15px;
+  }
+}
+
+.locations {
+  list-style: none;
+  overflow-y: auto;
+  padding: 0 26px;
+  height: 100%;
+  display: none;
+  width: 100%;
+  & li {
+    color: $dark-gray;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    padding: 17px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: $light-gray;
+    }
+    & i {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+}
+
+.guests {
+  padding: 0 26px;
+  display: none;
+  width: 100%;
+  &__count {
+    margin-bottom: 50px;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    color: $primary;
+    margin-bottom: 12px;
+  }
+  &__subtitle {
+    display: block;
+    color: $middle-gray;
+    font-weight: 400;
+  }
+  &__counter {
+    & button {
+      background-color: transparent;
+      width: 24px;
+      height: 24px;
+      border: 1px solid $primary-gray;
+      border-radius: 4px;
+      color: $primary-gray;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      &:hover {
+        background-color: $light-gray;
+      }
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+    & span {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3rem;
+      color: $primary;
+      margin-right: 15px;
+    }
+  }
+}
+
+.locations.on-focus,
+.guests.on-focus {
+  display: block;
+}

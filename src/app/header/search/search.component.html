@@ -1,0 +1,89 @@
+<div class="search__overlay">
+  <div class="search__wrapper">
+    <div class="search__header">
+      <p>Edit your search</p>
+      <button type="button" class="close__btn">
+        <i class="material-icons close__icon">close</i>
+      </button>
+    </div>
+    <div class="search__edit edit">
+      <div class="edit__country">
+        <label for="country">Location</label>
+        <input
+          type="text"
+          placeholder="Add location"
+          id="country"
+          (focus)="onFocus('locations')"
+          #inputLocation
+          (keyup)="searchLocation(inputLocation.value)"
+          autofocus="true"
+        />
+      </div>
+      <div class="edit__guests">
+        <label for="guests">Guests</label
+        ><input
+          type="text"
+          placeholder="Add guests"
+          id="guests"
+          (focus)="onFocus('guests')"
+          #inputGuests
+          [value]="adult + child"
+        />
+      </div>
+      <div class="edit__search">
+        <button (click)="onSubmit()" class="main-btn edit__btn" type="button">
+          <i class="material-icons">search</i>Search
+        </button>
+      </div>
+    </div>
+    <div class="list">
+      <ul
+        class="list__locations locations"
+        [ngClass]="{ 'on-focus': inFocusLocations }"
+      >
+        <li
+          *ngFor="let a of ap.getUniqCities() | filterLocation: value"
+          (click)="onLocationClick(a)"
+        >
+          <i class="material-icons">place</i>{{ a.city }}, {{ a.country }}
+        </li>
+      </ul>
+      <div
+        class="list__guests guests"
+        [ngClass]="{ 'on-focus': inFocusGuests }"
+      >
+        <div class="guests__count">
+          <p class="guests__title">
+            Adults <span class="guests__subtitle">Ages 13 or above</span>
+          </p>
+          <div class="guests__counter">
+            <button type="button" (click)="guestsCounter('adult', '-')">
+              &ndash;
+            </button>
+            <span class="guests__number">{{ adult }}</span>
+            <button type="button" (click)="guestsCounter('adult', '+')">
+              +
+            </button>
+          </div>
+        </div>
+        <div class="guests__count">
+          <p class="guests__title">
+            Children <span class="guests__subtitle">Ages 2-12</span>
+          </p>
+          <div class="guests__counter">
+            <button type="button" (click)="guestsCounter('child', '-')">
+              &ndash;
+            </button>
+            <span class="guests__number">{{ child }}</span>
+            <button type="button" (click)="guestsCounter('child', '+')">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="search__btn main-btn" type="button" (click)="onSubmit()">
+      <i class="material-icons">search</i>Search
+    </button>
+  </div>
+</div>

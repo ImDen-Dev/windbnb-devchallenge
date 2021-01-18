@@ -1,0 +1,91 @@
+@import "../../variables";
+.apartments {
+  &__head {
+    margin: 15px 0 24px;
+  }
+}
+
+.heading {
+  display: flex;
+  flex: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  &__country {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+    color: $primary;
+  }
+  &__items-count {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.21rem;
+    color: $dark-gray;
+  }
+}
+
+.card {
+  max-width: 395px;
+  width: 100%;
+  margin: 0 auto 49px;
+  &__img {
+    position: relative;
+    width: 100%;
+    padding-top: 68.1%;
+    overflow: hidden;
+    border-radius: 24px;
+    margin-bottom: 14px;
+    & img {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      right: -50%;
+      bottom: -50%;
+      margin: auto;
+      width: 105%;
+      height: auto;
+    }
+  }
+  &__info {
+    display: flex;
+    flex: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  &__super-host {
+    font-weight: 700;
+    font-size: 0.72rem;
+    line-height: 1.71rem;
+    text-transform: uppercase;
+    border: 1px solid $dark-gray;
+    border-radius: 12px;
+    padding: 0 8px;
+    margin-right: 9px;
+  }
+  &__type,
+  &__rate {
+    font-weight: 500;
+    font-size: 0.86rem;
+    line-height: 1.1rem;
+  }
+  &__type {
+    margin-right: auto;
+    color: $primary-gray;
+  }
+  &__star {
+    color: $primary-red;
+    font-size: 17px;
+    vertical-align: middle;
+  }
+  &__rate {
+    vertical-align: middle;
+    color: $dark-gray;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.43rem;
+    color: $primary;
+  }
+}

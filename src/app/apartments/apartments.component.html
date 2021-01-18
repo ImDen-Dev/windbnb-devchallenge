@@ -1,0 +1,30 @@
+<section class="apartments">
+  <div class="container">
+    <div class="apartments__head heading">
+      <h3 class="heading__country">Stays in {{ apartments[0].country }}</h3>
+      <p class="heading__items-count">{{ apartments.length }} items</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="cards">
+      <div class="cards__card card" *ngFor="let item of apartments">
+        <div class="card__img">
+          <img [src]="item.photo" [alt]="item.title" />
+        </div>
+        <div class="card__info">
+          <span class="card__super-host" *ngIf="item.superHost"
+            >super host</span
+          >
+          <p class="card__type">
+            {{ item.type }}<span *ngIf="item.beds">, {{ item.beds }} beds</span>
+          </p>
+          <div class="card__rating">
+            <i class="material-icons card__star">star_rate</i>
+            <span class="card__rate">{{ item.rating }}</span>
+          </div>
+        </div>
+        <h4 class="card__title">{{ item.title }}</h4>
+      </div>
+    </div>
+  </div>
+</section>

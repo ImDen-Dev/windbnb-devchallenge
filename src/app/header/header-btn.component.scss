@@ -1,0 +1,19 @@
+@import "../../variables";
+
+button.main-btn {
+  width: 126px;
+  height: 50px;
+  background-color: $primary-red;
+  border: 1px solid $primary-red;
+  border-radius: 16px;
+  font-family: $mulish;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3rem;
+  color: $light-gray;
+  cursor: pointer;
+  & i {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}

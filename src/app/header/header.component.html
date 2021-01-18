@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="container header__container">
+    <div class="logo">
+      <a href="./" class="logo__link">
+        <svg viewBox="0 0 96 19">
+          <use href="../../assets/images/logo.svg#logo"></use>
+        </svg>
+      </a>
+    </div>
+    <div class="search-field" (click)="openModal()">
+      <div class="search-field__country">
+        <p class="search-field__country-text">Add location</p>
+      </div>
+      <div class="search-field__guests">
+        <p class="search-field__guests-text">Add guests</p>
+      </div>
+      <div class="search-field__btn">
+        <i class="material-icons search-field__btn-icon">search</i>
+      </div>
+    </div>
+  </div>
+
+  <ng-template [ngIf]="open">
+    <app-search
+      (click)="close($event)"
+      (closeWindow)="open = false"
+    ></app-search>
+  </ng-template>
+</header>

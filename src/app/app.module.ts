@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './header/search/search.component';
 import { FilterLocationPipe } from './shared/filter-location.pipe';
 import { ApartmentsComponent } from './apartments/apartments.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ApartmentsComponent } from './apartments/apartments.component';
     SearchComponent,
     FilterLocationPipe,
     ApartmentsComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule],
   providers: [],

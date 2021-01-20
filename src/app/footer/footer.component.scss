@@ -1,0 +1,20 @@
+@import "../../variables";
+.footer {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 100%;
+    max-width: 402px;
+    background-color: $middle-gray;
+  }
+  & p {
+    text-align: center;
+    padding: 20px 0 19px;
+    color: $middle-gray;
+  }
+}

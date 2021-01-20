@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   open = false;
+  location: string = '';
+  guestsCount: number = 0;
   constructor() {}
 
   ngOnInit(): void {}
@@ -22,5 +24,11 @@ export class HeaderComponent implements OnInit {
     ) {
       this.open = false;
     }
+  }
+
+  onCloseWindow(event: { location: string; guests: number }): void {
+    this.open = false;
+    this.location = event.location;
+    this.guestsCount = event.guests;
   }
 }

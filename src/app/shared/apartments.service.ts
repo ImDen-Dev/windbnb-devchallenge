@@ -192,6 +192,9 @@ export class ApartmentsService {
   }
 
   filterApartments(location: string, guests: string): void {
+    if (location === '') {
+      return this.newStays.next(this.stays.slice());
+    }
     const newStays = this.stays.filter((s: Apartment) => {
       if (
         location.toLowerCase().indexOf(s.city.toLowerCase()) >= 0 &&

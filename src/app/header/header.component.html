@@ -9,10 +9,20 @@
     </div>
     <div class="search-field" (click)="openModal()">
       <div class="search-field__country">
-        <p class="search-field__country-text">Add location</p>
+        <p
+          class="search-field__country-text"
+          [style.color]="location !== '' ? '#333333' : '#bdbdbd'"
+        >
+          {{ location !== "" ? location : "Add location" }}
+        </p>
       </div>
       <div class="search-field__guests">
-        <p class="search-field__guests-text">Add guests</p>
+        <p
+          class="search-field__guests-text"
+          [style.color]="guestsCount > 0 ? '#333333' : '#bdbdbd'"
+        >
+          {{ guestsCount > 0 ? guestsCount + " guests" : "Add guests" }}
+        </p>
       </div>
       <div class="search-field__btn">
         <i class="material-icons search-field__btn-icon">search</i>
@@ -23,7 +33,7 @@
   <ng-template [ngIf]="open">
     <app-search
       (click)="close($event)"
-      (closeWindow)="open = false"
+      (closeWindow)="onCloseWindow($event)"
     ></app-search>
   </ng-template>
 </header>

@@ -27,7 +27,10 @@ export class SearchComponent implements OnInit, OnDestroy {
   child = 0;
   @ViewChild('inputLocation') loc!: ElementRef;
   @ViewChild('inputGuests') guests!: ElementRef;
-  @Output() closeWindow: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() closeWindow: EventEmitter<{
+    location: string;
+    guests: number;
+  }> = new EventEmitter<{ location: string; guests: number }>();
 
   constructor(public ap: ApartmentsService) {}
 
@@ -67,7 +70,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     const country = this.loc.nativeElement.value;
     const guestsCount = this.guests.nativeElement.value;
     this.ap.filterApartments(country, guestsCount);
-    this.closeWindow.emit();
+    this.closeWindow.emit({ location: country, guests: +guestsCount });
   }
 
   ngOnDestroy(): void {}
